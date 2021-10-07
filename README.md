@@ -36,3 +36,4 @@ root                    (project root folder)
 ## Authors
 ---
 * TODO: Add your names and emails here
+Tanner Siddoway, sid20003@byui.edu
