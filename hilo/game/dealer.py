@@ -27,7 +27,8 @@ class dealer:
             self (Director): An instance of Director.
             thrower(Thorwer): An instance of Thrower
         """
-        self.card = self.player.guess()
+        deck = [1,2,3,4,5,6,7,8,9,10,11,12,13]
+        self.card = self.player.guess(deck)
         
     def do_updates(self):
         """Updates the important game information for each round of play. In 
@@ -36,8 +37,9 @@ class dealer:
         Args:
             self (Director): An instance of Director.
         """
-        self.correct = self.player.correct_incorrect(self.card)
-        points = self.player.point_change()
+        deck = [1,2,3,4,5,6,7,8,9,10,11,12,13]
+        self.correct = self.player.correct_incorrect(self.card, deck)
+        points = self.player.point_change(self.correct)
         self.score += points
         
     def do_outputs(self):
@@ -49,7 +51,7 @@ class dealer:
         """
         print(f"You were {self.correct}")
         print(f"Your score is: {self.score}")
-        if self.player.can_guess():
+        if self.player.can_guess(self.score):
             choice = input("guess again? [y/n] ")
             self.keep_playing = (choice == "y")
         else:
