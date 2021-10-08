@@ -18,14 +18,15 @@ class player:
         card_2 = card_1
         while card_1 == card_2:
             card_2 = random.choice(self.deck)
+        print(card_1, card_2)
         print(f'The second card is {card_2}')
         if (card_1 > card_2) and self.choice.lower() == "lo":
             self.choice = 'correct'
         elif (card_1 > card_2) and self.choice.lower() == "hi":
             self.choice = 'incorrect'
-        elif (card_1 < card_2) and self.choice.lower() == "lo":
+        elif (card_1 < card_2) and self.choice.lower() == "hi":
              self.choice = 'correct'
-        elif(card_1 > card_2) and self.choice.lower() == "hi":
+        elif(card_1 > card_2) and self.choice.lower() == "lo":
             self.choice = 'incorrect'
         return self.choice
    

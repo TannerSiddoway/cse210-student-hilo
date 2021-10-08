@@ -35,6 +35,7 @@ class dealer:
             self (Director): An instance of Director.
         """
         self.correct = self.player.correct_incorrect(self.card)
+        print(self.card)
         points = self.player.point_change()
         self.score += points
         
