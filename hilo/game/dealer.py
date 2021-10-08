@@ -1,5 +1,4 @@
 from game.player import player
-import random
 class dealer:
     def __init__(self):
         self.keep_playing = True
@@ -11,7 +10,7 @@ class dealer:
         """Starts the game loop to control the sequence of play.
         
         Args:
-            self (Director): an instance of Director.
+            self (Dealer): an instance of Dealer.
         """
         while self.keep_playing:
             self.get_inputs()
@@ -20,12 +19,11 @@ class dealer:
             
 
     def get_inputs(self):
-        """Gets the inputs at the beginning of each round of play. In this case,
-        that means throwing the dice.
+        """Gets the inputs at the beginning of each round of play.
 
         Args:
-            self (Director): An instance of Director.
-            thrower(Thorwer): An instance of Thrower
+            self (Dealer): An instance of Dealer.
+            player(player): An instance of player
         """
         self.card = self.player.guess()
         
@@ -41,15 +39,14 @@ class dealer:
         self.score += points
         
     def do_outputs(self):
-        """Outputs the important game information for each round of play. In 
-        this case, that means the dice that were rolled and the score.
+        """Outputs the important game information for each round of play.
 
         Args:
-            self (Director): An instance of Director.
+            self (Dealer): An instance of Dealer.
         """
         print(f"You were {self.correct}")
         print(f"Your score is: {self.score}")
-        if self.player.can_guess():
+        if self.score > 0:
             choice = input("guess again? [y/n] ")
             self.keep_playing = (choice == "y")
         else:
