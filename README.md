@@ -37,3 +37,4 @@ root                    (project root folder)
 ---
 * TODO: Add your names and emails here
 Tanner Siddoway, sid20003@byui.edu
+Dallin Siddoway, sid20002@byui.edu
