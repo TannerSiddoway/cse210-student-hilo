@@ -10,15 +10,19 @@ class player:
     
     def guess(self):
         card = int(random.choice(self.deck))
-        print(f'The card is : {card}')
-        self.choice = input("Will the next card be higher or lower (hi/lo) ")
+        while(True):
+            print(f'The card is : {card}')
+            self.choice = input("Will the next card be higher or lower (hi/lo) ")
+            if self.choice.lower() == "hi" or self.choice.lower() == "lo":
+                break
+            else:
+                print("Invaled input")
         return card
 
     def correct_incorrect(self, card_1):
         card_2 = card_1
         while card_1 == card_2:
             card_2 = random.choice(self.deck)
-        print(card_1, card_2)
         print(f'The second card is {card_2}')
         if (card_1 > card_2) and self.choice.lower() == "lo":
             self.choice = 'correct'
@@ -26,7 +30,7 @@ class player:
             self.choice = 'incorrect'
         elif (card_1 < card_2) and self.choice.lower() == "hi":
              self.choice = 'correct'
-        elif(card_1 > card_2) and self.choice.lower() == "lo":
+        elif(card_1 < card_2) and self.choice.lower() == "lo":
             self.choice = 'incorrect'
         return self.choice
    
